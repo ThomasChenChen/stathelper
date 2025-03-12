@@ -1,6 +1,6 @@
 # stathelper
 
-[![Build Status](https://travis-ci.org/ThomasChenChen/stathelper.svg?branch=master)](https://travis-ci.org/ThomasChenChen/stathelper)
+![R-CMD-check](https://github.com/ThomasChenChen/stathelper/workflows/R-CMD-check/badge.svg)
 
 A simple R package providing helper functions for common statistical tasks.
 
