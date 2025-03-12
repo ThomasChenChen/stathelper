@@ -1,0 +1,22 @@
+Package: stathelper
+Title: Helper Functions for Common Statistical Tasks
+Version: 0.1.0
+Authors@R: 
+    person(given = "Your",
+           family = "Name",
+           role = c("aut", "cre"),
+           email = "your.email@example.com")
+Description: A collection of utility functions for common statistical operations.
+    Includes functions for calculating z-scores, confidence intervals, and detecting
+    outliers. Designed to simplify exploratory data analysis and basic statistical procedures.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Suggests: 
+    testthat (>= 3.0.0),
+    knitr,
+    rmarkdown
+Config/testthat/edition: 3
+VignetteBuilder: knitr

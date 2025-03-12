@@ -1,0 +1,86 @@
+---
+title: "Introduction to stathelper"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction to stathelper}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(stathelper)
+```
+
+# stathelper: Statistical Helper Functions
+
+The `stathelper` package provides simple utility functions for common statistical operations. This vignette demonstrates how to use each function in the package.
+
+## Calculating Z-Scores
+
+Z-scores (also called standard scores) tell you how many standard deviations away from the mean a data point is. The `z_score()` function calculates z-scores for a vector of values.
+
+```{r}
+# Create a sample dataset
+data <- c(23, 19, 27, 31, 22, 25, 18, 29)
+
+# Calculate z-scores
+z_scores <- z_score(data)
+z_scores
+
+# Verify the mean and sd of the z-scores
+mean(z_scores)
+sd(z_scores)
+```
+
+You can also provide your own mean and standard deviation:
+
+```{r}
+# Calculate z-scores with specified parameters
+z_score(c(85, 90, 95, 100), mean = 90, sd = 5)
+```
+
+## Calculating Confidence Intervals
+
+The `confidence_interval()` function calculates the confidence interval for the mean of a data set:
+
+```{r}
+# Get a confidence interval for our sample data
+ci <- confidence_interval(data)
+ci
+
+# The default confidence level is 0.95, but we can change it:
+confidence_interval(data, conf.level = 0.99)
+```
+
+## Detecting Outliers
+
+The `detect_outliers()` function uses the IQR method to identify outliers in your data:
+
+```{r}
+# Create data with outliers
+outlier_data <- c(23, 19, 27, 31, 22, 25, 18, 29, 95)
+
+# Detect outliers
+outliers <- detect_outliers(outlier_data)
+outliers
+
+# Get the outlier values
+outlier_data[outliers]
+```
+
+We can adjust the sensitivity of the outlier detection by changing the multiplier:
+
+```{r}
+# More strict outlier detection
+detect_outliers(outlier_data, multiplier = 1)
+
+# More lenient outlier detection
+detect_outliers(outlier_data, multiplier = 3)
+```
